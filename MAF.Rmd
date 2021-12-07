@@ -20,14 +20,18 @@ Using the supplied file, create two outputs.
 Getting Data:
 
 ```{bash eval=FALSE}
-cp /Users/jeffreylong/Desktop/sampleFile\ 1.txt /Users/jeffreylong/r/minorAlleleFrequency/sampleFile\ 1.txt
+git clone https://github.com/jeffreyCarlLong/dna.git
 ```
+
+Move to directory in your IDE and set it as your working directory.
 
 Reading Data:
 
 ```{r}
+## If tidyverse has not been installed,
+# install.packages("tidyverse") 
 library(tidyverse)
-filename <- "~/r/minorAlleleFrequency/sampleFile\ 1.txt"
+filename <- "sampleFile\ 1.txt"
 data <- read_tsv("sampleFile\ 1.txt")
 ```
 
@@ -37,6 +41,7 @@ Where MAF = minimum(reference allele frequency, alternate allele frequency)
 Reference (or Alternate) allele frequency is defined by 
 reference (or alternate) allele counts divided by the 
 sum of reference and alternate allele counts for a given SNP. 
+
 Code should print “SNPname” list and its corresponding MAF. 
 
 
