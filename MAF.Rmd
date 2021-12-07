@@ -23,7 +23,7 @@ Getting Data:
 git clone https://github.com/jeffreyCarlLong/dna.git
 ```
 
-Move to directory in your IDE and set it as your working directory.
+Move to dna/ directory in your IDE and set it as your working directory.
 
 Reading Data:
 
@@ -42,11 +42,11 @@ Reference (or Alternate) allele frequency is defined by
 reference (or alternate) allele counts divided by the 
 sum of reference and alternate allele counts for a given SNP. 
 
-Code should print “SNPname” list and its corresponding MAF. 
+Code prints “SNPname” list and its corresponding MAF. 
 
 
 ```{r}
-# Calculate and Output Solution for Code 1
+# Calculate and Output Solution for Calculation 1
 result <- data %>%
   rowwise() %>%
   mutate(MAF = min(c(ReferenceAlleleCount,AlternateAlleleCount)) / (ReferenceAlleleCount+AlternateAlleleCount)) %>%
@@ -60,7 +60,7 @@ result
 Calculate the number of SNPs that has a minor allele 
 frequency between 0.02 and 0.3. i.e., 0.02 <= MAF <= 0.3
 
-Code should print out the file name and the number of SNPs 
+Code prints out the file name and the number of SNPs 
 matching the criterion.
 
 
