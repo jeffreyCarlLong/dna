@@ -1,0 +1,74 @@
+---
+title: "Minor Allele Frequency"
+author: "Jeffrey Long"
+date: "11/18/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Minor Allele Frequency
+
+Using the supplied file, create two outputs.
+
+
+### Get and Read in Data
+
+Getting Data:
+
+```{bash eval=FALSE}
+cp /Users/jeffreylong/Desktop/sampleFile\ 1.txt /Users/jeffreylong/r/minorAlleleFrequency/sampleFile\ 1.txt
+```
+
+Reading Data:
+
+```{r}
+library(tidyverse)
+filename <- "~/r/minorAlleleFrequency/sampleFile\ 1.txt"
+data <- read_tsv("sampleFile\ 1.txt")
+```
+
+### 1. Calculate minor allele frequency (MAF) for each SNP.
+
+Where MAF = minimum(reference allele frequency, alternate allele frequency) 
+Reference (or Alternate) allele frequency is defined by 
+reference (or alternate) allele counts divided by the 
+sum of reference and alternate allele counts for a given SNP. 
+Code should print “SNPname” list and its corresponding MAF. 
+
+
+```{r}
+# Calculate and Output Solution for Code 1
+result <- data %>%
+  rowwise() %>%
+  mutate(MAF = min(c(ReferenceAlleleCount,AlternateAlleleCount)) / (ReferenceAlleleCount+AlternateAlleleCount)) %>%
+  select(SNPname,MAF)
+
+result
+```
+
+### 2. Filter MAFs for range 0.02-0.3
+
+Calculate the number of SNPs that has a minor allele 
+frequency between 0.02 and 0.3. i.e., 0.02 <= MAF <= 0.3
+
+Code should print out the file name and the number of SNPs 
+matching the criterion.
+
+
+```{r}
+result_filtered <- result %>%
+  filter(MAF >= 0.02 & MAF<= 0.3)
+
+basename(filename)
+nrow(result_filtered)
+```
+
+
+## Coding Environment
+```{r}
+sessionInfo()
+```
