@@ -1,5 +1,10 @@
 # Minor Allele Frequency
 
+To clone and run code
+```{bash}
+git clone https://github.com/jeffreyCarlLong/dna.git
+```
+
 Using "sampleFile 1.txt" file, this repository contains code that calculates the following:
 
 1. Minor allele frequency (MAF; definition shown in 1a) for each SNP.
